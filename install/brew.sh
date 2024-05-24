@@ -13,6 +13,7 @@ apps=(
     neovim
     wget
     nvm
+    eza
     starship
 )
 

@@ -1,6 +1,7 @@
 # Alias
 alias nvim="CC=/opt/homebrew/bin/gcc-13 nvim"
 alias g="gitui"
+alias ls="eza"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

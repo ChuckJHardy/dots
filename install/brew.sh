@@ -12,6 +12,7 @@ apps=(
     tree
     neovim
     wget
+    nvm
     starship
 )
 

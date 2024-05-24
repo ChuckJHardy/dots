@@ -12,7 +12,7 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = act.PromptInputLine({
 			description = "Enter new name for tab",
-			action = wezterm.action_callback(function(window, pane, line)
+			action = wezterm.action_callback(function(window, _, line)
 				if line then
 					window:active_tab():set_title(line)
 				end
@@ -20,5 +20,10 @@ config.keys = {
 		}),
 	},
 }
+
+-- Tab Bar Config
+config.tab_bar_at_bottom = true
+config.hide_tab_bar_if_only_one_tab = false
+config.use_fancy_tab_bar = false
 
 return config

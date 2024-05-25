@@ -8,6 +8,7 @@ volta install npm
 # Globally install with npm
 packages=(
     eslint
+    markdownlint-cli
     tldr
     vtop
 )

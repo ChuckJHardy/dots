@@ -346,6 +346,14 @@ require('lazy').setup({
     },
   },
 
+  -- Quick Nav
+  {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').create_default_mappings()
+    end,
+  },
+
   -- Vim Test
   {
     'vim-test/vim-test',

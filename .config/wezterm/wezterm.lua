@@ -8,7 +8,7 @@ config.font = wezterm.font("JetBrainsMono Nerd Font")
 
 -- Fix MacOS Alt Key
 config.send_composed_key_when_left_alt_is_pressed = true
-config.send_composed_key_when_right_alt_is_pressed = true
+config.send_composed_key_when_right_alt_is_pressed = false
 
 config.keys = {
 	{
@@ -27,7 +27,7 @@ config.keys = {
 
 -- Tab Bar Config
 config.tab_bar_at_bottom = true
-config.hide_tab_bar_if_only_one_tab = false
+config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 
 return config

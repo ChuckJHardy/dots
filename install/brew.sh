@@ -15,6 +15,7 @@ apps=(
     nvm
     eza
     starship
+    zellij
 )
 
 brew install "${apps[@]}"

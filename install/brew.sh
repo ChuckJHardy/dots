@@ -16,6 +16,7 @@ apps=(
     eza
     starship
     zellij
+    gh
 )
 
 brew install "${apps[@]}"

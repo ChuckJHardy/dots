@@ -15,6 +15,23 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+# Github Helper Functions
+delete_remote_branches_except_main() {
+  git fetch --all
+  
+  # Loop through each remote branch and delete it if it's not main
+  for branch in $(git branch -r | grep -v '\->' | grep -v 'main$' | sed 's/origin\///'); do
+    git push origin --delete $branch
+  done
+}
+
+delete_local_branches_except_main() {
+  # Loop through each local branch and delete it if it's not main
+  for branch in $(git branch | grep -v 'main$' | grep -v '\*'); do
+    git branch -d $branch
+  done
+}
+
 # Starship
 eval "$(starship init zsh)"
 

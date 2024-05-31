@@ -109,6 +109,11 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
+-- Color at 80 characters to help keep lines short
+vim.opt.colorcolumn = '80'
+-- Highlight the color column
+-- vim.cmd 'highlight ColorColumn ctermbg=1 guibg=red'
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 

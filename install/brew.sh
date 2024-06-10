@@ -17,6 +17,7 @@ apps=(
     starship
     zellij
     gh
+    pass
 )
 
 brew install "${apps[@]}"

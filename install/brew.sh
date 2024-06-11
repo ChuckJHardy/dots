@@ -16,6 +16,7 @@ apps=(
     eza
     starship
     zellij
+    wezterm
     gh
     pass
 )

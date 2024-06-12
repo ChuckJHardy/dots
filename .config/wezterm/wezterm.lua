@@ -4,7 +4,7 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 config.color_scheme = "Tokyo Night Moon"
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font("JetBrains Mono")
 
 -- Fix MacOS Alt Key
 config.send_composed_key_when_left_alt_is_pressed = true

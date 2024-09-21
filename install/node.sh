@@ -11,6 +11,7 @@ packages=(
     markdownlint-cli
     tldr
     vtop
+    sst
 )
 
 npm install -g "${packages[@]}"

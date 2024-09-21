@@ -340,6 +340,9 @@ require('lazy').setup({
             ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
           },
         },
+        messages = {
+          enabled = true,
+        },
         -- you can enable a preset for easier configuration
         presets = {
           bottom_search = true, -- use a classic bottom cmdline for search
@@ -1048,7 +1051,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'http', 'json' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {

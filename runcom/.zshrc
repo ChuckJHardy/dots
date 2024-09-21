@@ -2,6 +2,7 @@
 alias nvim="CC=/opt/homebrew/bin/gcc-13 nvim"
 alias g="gitui"
 alias ls="eza"
+alias awssso="aws sso login --sso-session=habium"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -35,3 +36,13 @@ delete_local_branches_except_main() {
 # Starship
 eval "$(starship init zsh)"
 
+
+# bun completions
+[ -s "/Users/chuckjhardy/.bun/_bun" ] && source "/Users/chuckjhardy/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/opt/openjdk/bin"

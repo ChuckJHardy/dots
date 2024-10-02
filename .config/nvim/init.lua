@@ -267,6 +267,7 @@ require('lazy').setup({
 
   { 'tpope/vim-endwise', ft = { 'ruby', 'eruby' } }, -- Ruby
   { 'vim-ruby/vim-ruby', event = { 'BufReadPost', 'BufNewFile' } },
+  { 'mihyaeru21/nvim-ruby-lsp', requires = 'neovim/nvim-lspconfig' },
 
   -- Github CoPilot
   'github/copilot.vim', -- Detect tabstop and shiftwidth automatically
@@ -286,24 +287,24 @@ require('lazy').setup({
   },
 
   -- ChatGPT
-  {
-    'jackMort/ChatGPT.nvim',
-    event = 'VeryLazy',
-    config = function()
-      require('chatgpt').setup {
-        api_key_cmd = 'pass Dev/ChatGPT',
-        openai_params = {
-          model = 'gpt-4o',
-        },
-      }
-    end,
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'nvim-lua/plenary.nvim',
-      'folke/trouble.nvim',
-      'nvim-telescope/telescope.nvim',
-    },
-  },
+  -- {
+  --   'jackMort/ChatGPT.nvim',
+  --   event = 'VeryLazy',
+  --   config = function()
+  --     require('chatgpt').setup {
+  --       api_key_cmd = 'pass Dev/ChatGPT',
+  --       openai_params = {
+  --         model = 'gpt-4o',
+  --       },
+  --     }
+  --   end,
+  --   dependencies = {
+  --     'MunifTanjim/nui.nvim',
+  --     'nvim-lua/plenary.nvim',
+  --     'folke/trouble.nvim',
+  --     'nvim-telescope/telescope.nvim',
+  --   },
+  -- },
 
   -- Git
   {
@@ -756,7 +757,6 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        ruby_lsp = {},
         tailwindcss = {},
         -- clangd = {},
         -- opls = {},

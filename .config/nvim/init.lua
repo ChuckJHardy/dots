@@ -265,6 +265,9 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
+  { 'tpope/vim-endwise', ft = { 'ruby', 'eruby' } }, -- Ruby
+  { 'vim-ruby/vim-ruby', event = { 'BufReadPost', 'BufNewFile' } },
+
   -- Github CoPilot
   'github/copilot.vim', -- Detect tabstop and shiftwidth automatically
 
@@ -753,6 +756,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        ruby_lsp = {},
         tailwindcss = {},
         -- clangd = {},
         -- opls = {},
@@ -1051,7 +1055,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'http', 'json' },
+      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'http', 'json', 'ruby' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {

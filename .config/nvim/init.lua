@@ -265,11 +265,6 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
-  { 'tpope/vim-rails', ft = { 'ruby' } },
-  { 'vim-ruby/vim-ruby', event = { 'BufReadPost', 'BufNewFile' } },
-  -- { 'mihyaeru21/nvim-ruby-lsp', requires = 'neovim/nvim-lspconfig' },
-  { 'catlee/pull_diags.nvim', event = 'LspAttach', opts = {} },
-
   -- Github CoPilot
   'github/copilot.vim', -- Detect tabstop and shiftwidth automatically
 
@@ -603,6 +598,14 @@ require('lazy').setup({
 
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    opts = {
+      servers = {
+        ruby_lsp = {
+          mason = false,
+          cmd = { vim.fn.expand '~/.rbenv/shims/ruby-lsp' },
+        },
+      },
+    },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
@@ -758,41 +761,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 
-      local handlers = {
-        ['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-          virtual_text = true,
-        }),
-      }
-
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      local lspconfig = require 'lspconfig'
       local servers = {
-        -- ruby_lsp = {
-        --  mason = false,
-        --  enabled = true,
-        --  cmd = { vim.fn.expand '~/.rbenv/shims/ruby-lsp' },
-        -- },
-        solargraph = {
-          cmd = { os.getenv 'HOME' .. '/.rbenv/shims/solargraph', 'stdio' },
-          root_dir = lspconfig.util.root_pattern('Gemfile', '.git', '.'),
-          filetypes = { 'ruby' },
-          capabilities = capabilities,
-          handlers = handlers,
-          settings = {
-            solargraph = {
-              completion = true,
-              autoformat = false,
-              formatting = true,
-              symbols = true,
-              definitions = true,
-              references = true,
-              folding = true,
-              highlights = true,
-              diagnostics = true,
-              rename = true,
-            },
-          },
-        },
         tailwindcss = {},
         -- clangd = {},
         -- opls = {},

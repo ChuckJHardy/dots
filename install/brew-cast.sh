@@ -5,6 +5,7 @@ apps=(
     visual-studio-code
     vlc
     wezterm
+    nikitabobko/tap/aerospace
 )
 
 brew install "${apps[@]}" --cask

@@ -46,3 +46,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/opt/openjdk/bin"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

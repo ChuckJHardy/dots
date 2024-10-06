@@ -17,6 +17,8 @@ apps=(
     starship
     zellij
     gh
+    libpq
+    postgresql
 )
 
 brew install "${apps[@]}"

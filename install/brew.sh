@@ -19,6 +19,7 @@ apps=(
     gh
     libpq
     postgresql
+    rbenv
 )
 
 brew install "${apps[@]}"

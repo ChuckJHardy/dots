@@ -20,6 +20,8 @@ apps=(
     libpq
     postgresql
     rbenv
+    imagemagick
+    vips
 )
 
 brew install "${apps[@]}"

@@ -265,6 +265,22 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
+  -- Github CoPilot
+  'github/copilot.vim', -- Detect tabstop and shiftwidth automatically
+  -- CoPilot Chat
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    branch = 'canary',
+    dependencies = {
+      { 'github/copilot.vim' }, -- or zbirenbaum/copilot.lua
+      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
+    },
+    opts = {
+      debug = false,
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+  },
+
   -- Claude
   -- {
   --   'yetone/avante.nvim',

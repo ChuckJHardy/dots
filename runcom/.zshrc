@@ -4,6 +4,9 @@ alias g="gitui"
 alias ls="eza"
 alias awssso="aws sso login --sso-session=habium"
 
+export EDITOR=nvim
+export VISUAL="$EDITOR"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

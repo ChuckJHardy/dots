@@ -267,19 +267,6 @@ require('lazy').setup({
 
   -- Github CoPilot
   'github/copilot.vim', -- Detect tabstop and shiftwidth automatically
-  -- CoPilot Chat
-  {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    branch = 'canary',
-    dependencies = {
-      { 'github/copilot.vim' }, -- or zbirenbaum/copilot.lua
-      { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
-    },
-    opts = {
-      debug = false,
-    },
-    -- See Commands section for default commands if you want to lazy load on them
-  },
 
   -- Claude
   -- {
@@ -489,21 +476,24 @@ require('lazy').setup({
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
+      local wk = require 'which-key'
 
-      -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
+      wk.setup()
+
+      -- Document all prefix groups
+      wk.add({
+        { prefix = '<leader>c', desc = '[C]ode' },
+        { prefix = '<leader>d', desc = '[D]ocument' },
+        { prefix = '<leader>h', desc = 'Git [H]unk' },
+        { prefix = '<leader>r', desc = '[R]ename' },
+        { prefix = '<leader>s', desc = '[S]earch' },
+        { prefix = '<leader>t', desc = '[T]oggle' },
+        { prefix = '<leader>w', desc = '[W]orkspace' },
+      }, { mode = 'n' })
+
+      -- Visual mode mappings
+      wk.add({
+        { prefix = '<leader>h', desc = 'Git [H]unk' },
       }, { mode = 'v' })
     end,
   },

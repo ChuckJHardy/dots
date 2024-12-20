@@ -26,11 +26,20 @@ config.keys = {
 }
 
 -- Tab Bar Config
-config.tab_bar_at_bottom = true
+config.tab_bar_at_bottom = false
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
+config.show_tab_index_in_tab_bar = true
+
+-- Window Padding
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
+}
 
 -- Window Config
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 
 return config

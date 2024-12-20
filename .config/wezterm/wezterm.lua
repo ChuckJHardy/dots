@@ -33,9 +33,9 @@ config.show_tab_index_in_tab_bar = true
 
 -- Window Padding
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 0,
+	left = 10,
+	right = 20,
+	top = 10,
 	bottom = 0,
 }
 

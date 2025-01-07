@@ -23,7 +23,7 @@ esac
 # Github Helper Functions
 delete_remote_branches_except_main() {
   git fetch --all
-  
+
   # Loop through each remote branch and delete it if it's not main
   for branch in $(git branch -r | grep -v '\->' | grep -v 'main$' | sed 's/origin\///'); do
     git push origin --delete $branch

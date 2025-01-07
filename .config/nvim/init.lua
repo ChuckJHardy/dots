@@ -266,7 +266,7 @@ require('lazy').setup({
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- Github CoPilot
-  'github/copilot.vim', -- Detect tabstop and shiftwidth automatically
+  -- 'github/copilot.vim', -- Detect tabstop and shiftwidth automatically
 
   -- Claude
   -- {

@@ -3,7 +3,7 @@ alias nvim="CC=/opt/homebrew/bin/gcc-13 nvim"
 alias g="gitui"
 alias ls="eza"
 alias awssso="aws sso login --sso-session=habium"
-alias book="cd /Users/chuckjhardy/Library/CloudStorage/ProtonDrive-me@chuckjhardy.com-folder/Obsidian/Golf/Impact\ Inc"
+alias book="cd /Users/chuckjhardy/Library/CloudStorage/ProtonDrive-me@chuckjhardy.com-folder/Obsidian/SlipBox/SlipBox"
 
 export EDITOR=nvim
 export VISUAL="$EDITOR"

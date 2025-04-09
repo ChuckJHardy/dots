@@ -1,11 +1,15 @@
 # Install cask packages
 
 apps=(
-    alfred
-    visual-studio-code
+    dropbox
+    proton-drive
+    raycast
+    docker
+    zotero
+    claude
+    cursor
     vlc
     wezterm
-    nikitabobko/tap/aerospace
 )
 
 brew install "${apps[@]}" --cask

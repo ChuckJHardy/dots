@@ -15,7 +15,6 @@ apps=(
     nvm
     eza
     starship
-    gitui
     gh
     libpq
     postgresql

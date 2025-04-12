@@ -4,6 +4,7 @@ apps=(
     dropbox
     proton-drive
     raycast
+    github
     docker
     zotero
     claude

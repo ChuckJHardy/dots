@@ -9,7 +9,7 @@ apps=(
     docker
     zotero
     claude
-    cursor
+    visual-studio-code
     vlc
     wezterm
 )

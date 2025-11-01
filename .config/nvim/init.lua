@@ -378,45 +378,6 @@ require('lazy').setup({
     },
   },
 
-  -- Vim Test
-  {
-    'vim-test/vim-test',
-    config = function()
-      vim.g['test#strategy'] = 'neovim'
-      vim.g['test#neovim#term_position'] = 'vert'
-      vim.g['test#neovim#term_opts'] = { split = 'vertical' }
-
-      vim.keymap.set('n', '<leader>t', '<cmd>TestFile<CR>', { desc = '[T]est' })
-      vim.keymap.set('n', '<leader>a', '<cmd>TestSuite<CR>', { desc = 'Test [A]ll' })
-
-      -- Define the function to toggle between .ts and .test.ts files in a vertical split
-      function OpenTestFile()
-        -- Get the current file path
-        local current_file = vim.api.nvim_buf_get_name(0)
-
-        -- Determine the target file extension
-        local target_file
-        if string.match(current_file, '%.test%.ts$') then
-          -- If the current file is a test file, switch to the implementation file
-          target_file = string.gsub(current_file, '%.test%.ts$', '.ts')
-        else
-          -- Otherwise, switch to the test file
-          target_file = string.gsub(current_file, '%.ts$', '.test.ts')
-        end
-
-        -- Open the target file in a vertical split
-        vim.cmd('vsplit ' .. target_file)
-      end
-
-      -- Assign the function to a keymap
-      vim.api.nvim_set_keymap('n', '<leader>oo', ':lua OpenTestFile()<CR>', {
-        noremap = true,
-        silent = true,
-        desc = '[O]pen [O]ther test or code file',
-      })
-    end,
-  },
-
   -- Colorizer
   {
     'NvChad/nvim-colorizer.lua',
@@ -468,34 +429,60 @@ require('lazy').setup({
   -- which loads which-key before all the UI elements are loaded. Events can be
   -- normal autocommands events (`:help autocmd-events`).
   --
-  -- Then, because we use the `config` key, the configuration only runs
-  -- after the plugin has been loaded:
-  --  config = function() ... end
+  -- Then, because we use the `opts` key (recommended), the configuration runs
+  -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      local wk = require 'which-key'
+    opts = {
+      -- delay between pressing a key and opening which-key (milliseconds)
+      -- this setting is independent of vim.o.timeoutlen
+      delay = 0,
+      icons = {
+        -- set icon mappings to true if you have a Nerd Font
+        mappings = vim.g.have_nerd_font,
+        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
+        -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
+        keys = vim.g.have_nerd_font and {} or {
+          Up = '<Up> ',
+          Down = '<Down> ',
+          Left = '<Left> ',
+          Right = '<Right> ',
+          C = '<C-…> ',
+          M = '<M-…> ',
+          D = '<D-…> ',
+          S = '<S-…> ',
+          CR = '<CR> ',
+          Esc = '<Esc> ',
+          ScrollWheelDown = '<ScrollWheelDown> ',
+          ScrollWheelUp = '<ScrollWheelUp> ',
+          NL = '<NL> ',
+          BS = '<BS> ',
+          Space = '<Space> ',
+          Tab = '<Tab> ',
+          F1 = '<F1>',
+          F2 = '<F2>',
+          F3 = '<F3>',
+          F4 = '<F4>',
+          F5 = '<F5>',
+          F6 = '<F6>',
+          F7 = '<F7>',
+          F8 = '<F8>',
+          F9 = '<F9>',
+          F10 = '<F10>',
+          F11 = '<F11>',
+          F12 = '<F12>',
+        },
+      },
 
-      wk.setup()
-
-      -- Document all prefix groups
-      wk.add({
-        { prefix = '<leader>c', desc = '[C]ode' },
-        { prefix = '<leader>d', desc = '[D]ocument' },
-        { prefix = '<leader>h', desc = 'Git [H]unk' },
-        { prefix = '<leader>r', desc = '[R]ename' },
-        { prefix = '<leader>s', desc = '[S]earch' },
-        { prefix = '<leader>t', desc = '[T]oggle' },
-        { prefix = '<leader>w', desc = '[W]orkspace' },
-      }, { mode = 'n' })
-
-      -- Visual mode mappings
-      wk.add({
-        { prefix = '<leader>h', desc = 'Git [H]unk' },
-      }, { mode = 'v' })
-    end,
+      -- Document existing key chains
+      spec = {
+        { '<leader>s', group = '[S]earch' },
+        { '<leader>t', group = '[T]oggle' },
+        { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+      },
+    },
   },
 
   -- NOTE: Plugins can specify dependencies.

@@ -44,3 +44,4 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 export PATH=$PATH:$GEM_HOME/bin
 eval "$(rbenv init - --no-rehash zsh)"
+export PATH="$HOME/.local/bin:$PATH"
